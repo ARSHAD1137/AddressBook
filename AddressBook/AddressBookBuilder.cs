@@ -1,4 +1,4 @@
-﻿using Amazon.DynamoDBv2.DocumentModel;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,44 +6,24 @@ using System.Text;
 
 namespace AddressBook
 {
-    public class AddressBookBuilder
+    class AddressBookBuilder
     {
-        private LinkedList<Contact> list = new LinkedList<Contact>();
-        
-        public void AddContact()
+
+       
+        private List<Contact> list { get; set; } = new List<Contact>();
+        public void AddInput(Contact myObj)
+
         {
-
-
+            list.Add(myObj);
         }
-        public void DisplayContact()
+        public  void DisplayContact()
         {
-            if (list.Count > 0)
+            foreach (var Contact in list)
             {
-               foreach(var contact in list)
-               {
-                    Console.WriteLine("First Name" + contact.FirstName + "Last Name");
-               }
-            }
-            else
-            {
-                Console.WriteLine("List is Empty");
+                Console.WriteLine(Contact.FirstName + "" + Contact.LastName + ""+Contact.Address+""+Contact.City+""+Contact.State+""+Contact.Pincode+""+Contact.PhoneNumber+""+Contact.Email+"");
             }
         }
-        public void SearchContact()
-         
-        {
-            private static Search()
-            {
-
-            }
-            
-            var resultList = list.Where(x => x.FirstName == search.FirstName).ToList;
-            int i = 1;
-            foreach(var contact in resultList)
-            {
-                Console.WriteLine("Result {0} : {1}", i++, list[i].ToString());
-            }
-        }
+       
 
       
     }
