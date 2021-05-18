@@ -55,5 +55,15 @@ namespace AddressBook
                     Console.WriteLine("Enter valid Name");
                 }
         }
+        public void Delete(string DeleteName)
+        {
+            foreach (var Contact in list)
+                if (Contact.FirstName == DeleteName)
+                {
+                    list.Remove(Contact);
+                    Console.WriteLine("Contact Details Deleted Succesfully");
+                    break;
+                }
+        }
     }
 }
