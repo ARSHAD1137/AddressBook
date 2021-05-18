@@ -29,6 +29,31 @@ namespace AddressBook
                 Console.WriteLine("Email:" + Contact.Email + "");
             }
         }
-
+        public void Edit(string EnterName)
+        {
+            foreach (var Contact in list)
+                if (Contact.FirstName == EnterName)
+                {
+                    Console.WriteLine("Enter Upadated Details");
+                    Console.WriteLine("First Name:");
+                    string firstName = Console.ReadLine();
+                    Console.WriteLine("Last Name:");
+                    string lastName = Console.ReadLine();
+                    Console.WriteLine("Address:");
+                    string address = Console.ReadLine();
+                    Console.WriteLine("City:");
+                    string city = Console.ReadLine();
+                    Console.WriteLine("State:");
+                    string state = Console.ReadLine();
+                    Console.WriteLine("Pincode:");
+                    int pincode = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Phone Number:");
+                    int phoneNumber = Convert.ToInt32(Console.ReadLine());
+                }
+                else
+                {
+                    Console.WriteLine("Enter valid Name");
+                }
+        }
     }
 }
