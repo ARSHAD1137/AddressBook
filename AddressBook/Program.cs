@@ -8,7 +8,7 @@ namespace AddressBook
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book");
-            Console.WriteLine("Select Opertion\n 1: Add New Contact Details\n 2: Display Contact List\n 3: Edit Contact Details\n 4: Delete Contact Details\n X: Exit");
+            Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n X: Exit");
 
             string Choice = Console.ReadLine();
             var userInput = new AddressBookBuilder();
@@ -17,6 +17,7 @@ namespace AddressBook
                 switch (Choice)
                 {
                     case "1":
+                        Console.WriteLine("Enter Name For Address Book");
                         AddressBookBuilder.Add();
                         break;
                     case "2":
@@ -30,11 +31,15 @@ namespace AddressBook
                         Console.WriteLine("Enter First Name of Contact To Delete Contact Details");
                         AddressBookBuilder.Delete();
                         break;
+                    case "5":
+                        Console.WriteLine("Enter Name For Address Book");
+                        AddressBookBuilder.Duplicate();
+                        break;
                     case "X":
                         return;
 
                 }
-                Console.WriteLine("Select Opertion\n 1: Add New Contact Details\n 2: Display Contact List\n 3: Edit Contact Details\n 4: Delete Contact Details\n X: Exit");
+                Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n X: Exit");
                 Choice = Console.ReadLine();
 
 

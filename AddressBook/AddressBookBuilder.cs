@@ -73,9 +73,6 @@ namespace AddressBook
         }
         public static void Add()
         {
-            
-           
-                Console.WriteLine("Enter Name For Address Book");
                 string AddName = Console.ReadLine();
 
                 Console.WriteLine("First Name:");
@@ -104,6 +101,24 @@ namespace AddressBook
                 var Input = new Contact(firstName, lastName, address, city, state, pincode, phoneNumber, email);
            
                  dictionary.Add(AddName, Input);
+        }
+        public static void Duplicate()
+        {
+            string AddName = Console.ReadLine();
+            Console.WriteLine("First Name:");
+            string firstName = Console.ReadLine();
+            foreach(var element in dictionary)
+            {
+                if (element.Key.Equals(AddName) || element.Key.Equals(firstName))
+                {
+                    Console.WriteLine("Address Book Already Exists");
+                }
+                else
+                {
+                   Console.WriteLine("No Address Book Found, Please Select Option 1 To Add Address Book");
+                }
+            }
+            
         }
     }
 }
