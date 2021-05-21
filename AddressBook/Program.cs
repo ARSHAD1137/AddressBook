@@ -17,45 +17,18 @@ namespace AddressBook
                 switch (Choice)
                 {
                     case "1":
-
-                        Console.WriteLine("First Name:");
-                        string firstName = Console.ReadLine();
-
-                        Console.WriteLine("Last Name:");
-                        string lastName = Console.ReadLine();
-
-                        Console.WriteLine("Address:");
-                        string address = Console.ReadLine();
-
-                        Console.WriteLine("City:");
-                        string city = Console.ReadLine();
-
-                        Console.WriteLine("State:");
-                        string state = Console.ReadLine();
-
-                        Console.WriteLine("Pincode:");
-                        int pincode = Convert.ToInt32(Console.ReadLine());
-
-                        Console.WriteLine("Phone Number:");
-                        int phoneNumber = Convert.ToInt32(Console.ReadLine());
-
-                        Console.WriteLine("Email:");
-                        string email = Console.ReadLine();
-                        var Input = new Contact(firstName, lastName, address, city, state, pincode, phoneNumber, email);
-                        userInput.AddInput(Input);
+                        AddressBookBuilder.Add();
                         break;
                     case "2":
-                        userInput.DisplayContact();
+                        AddressBookBuilder.DisplayContact();
                         break;
                     case "3":
-                        Console.WriteLine("Enter First Name Of Contact To Edit Contact Details");
-                        string EnterName = Console.ReadLine();
-                        userInput.Edit(EnterName);
+                        Console.WriteLine("Enter the Name of Address Book You Want to Edit:");
+                        AddressBookBuilder.Edit();
                         break;
                     case "4":
                         Console.WriteLine("Enter First Name of Contact To Delete Contact Details");
-                        string DeleteName = Console.ReadLine();
-                        userInput.Delete(DeleteName);
+                        AddressBookBuilder.Delete();
                         break;
                     case "X":
                         return;

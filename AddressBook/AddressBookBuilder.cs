@@ -9,30 +9,35 @@ namespace AddressBook
     {
 
 
-        private List<Contact> list { get; set; } = new List<Contact>();
-        public void AddInput(Contact myObj)
+        public static List<Contact> list  = new List<Contact>();
+        public static Dictionary<string, Contact> dictionary = new Dictionary<string, Contact>();
+
+        public static void AddInput(Contact myObj)
 
         {
             list.Add(myObj);
         }
-        public void DisplayContact()
+        public static void DisplayContact()
         {
-            foreach (var Contact in list)
+            foreach (var element in dictionary)
             {
-                Console.WriteLine("First Name:" + Contact.FirstName + "");
-                Console.WriteLine("Last Name:" + Contact.LastName + "");
-                Console.WriteLine("Address:" + Contact.Address + "");
-                Console.WriteLine("City:" + Contact.City + "");
-                Console.WriteLine("State:" + Contact.State + "");
-                Console.WriteLine("Pincode:" + Contact.Pincode + "");
-                Console.WriteLine("Phone Number:" + Contact.PhoneNumber + "");
-                Console.WriteLine("Email:" + Contact.Email + "");
+                Console.WriteLine($"Address Book:{element.Key}");
+                Console.WriteLine($"First Name:{element.Value.FirstName}");
+                Console.WriteLine($"Last Name:{element.Value.LastName}");
+                Console.WriteLine($"Address:{element.Value.Address}");
+                Console.WriteLine($"City:{element.Value.City}");
+                Console.WriteLine($"State:{element.Value.State}");
+                Console.WriteLine($"Pincode:{element.Value.Pincode}");
+                Console.WriteLine($"Phone Number:{element.Value.PhoneNumber}");
+                Console.WriteLine($"Email:{element.Value.Email}");
             }
         }
-        public void Edit(string EnterName)
+        public static void Edit()
         {
-            foreach (var Contact in list)
-                if (Contact.FirstName == EnterName)
+   
+            string EnterName = Console.ReadLine();
+            foreach (var element in dictionary)
+                if (element.Key == EnterName)
                 {
                     Console.WriteLine("Enter Upadated Details");
                     Console.WriteLine("First Name:");
@@ -55,8 +60,9 @@ namespace AddressBook
                     Console.WriteLine("Enter valid Name");
                 }
         }
-        public void Delete(string DeleteName)
+        public static void Delete()
         {
+            string DeleteName = Console.ReadLine();
             foreach (var Contact in list)
                 if (Contact.FirstName == DeleteName)
                 {
@@ -64,6 +70,40 @@ namespace AddressBook
                     Console.WriteLine("Contact Details Deleted Succesfully");
                     break;
                 }
+        }
+        public static void Add()
+        {
+            
+           
+                Console.WriteLine("Enter Name For Address Book");
+                string AddName = Console.ReadLine();
+
+                Console.WriteLine("First Name:");
+                string firstName = Console.ReadLine();
+
+                Console.WriteLine("Last Name:");
+                string lastName = Console.ReadLine();
+
+                Console.WriteLine("Address:");
+                string address = Console.ReadLine();
+
+                Console.WriteLine("City:");
+                string city = Console.ReadLine();
+
+                Console.WriteLine("State:");
+                string state = Console.ReadLine();
+
+                Console.WriteLine("Pincode:");
+                int pincode = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Phone Number:");
+                int phoneNumber = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Email:");
+                string email = Console.ReadLine();
+                var Input = new Contact(firstName, lastName, address, city, state, pincode, phoneNumber, email);
+           
+                 dictionary.Add(AddName, Input);
         }
     }
 }
