@@ -32,7 +32,7 @@ namespace AddressBook
                         AddressBookBuilder.Delete();
                         break;
                     case "5":
-                        Console.WriteLine("Enter Name For Address Book");
+                        Console.WriteLine("Enter the Address Book Name:");
                         AddressBookBuilder.Duplicate();
                         break;
                     case "X":

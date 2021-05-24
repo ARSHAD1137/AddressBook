@@ -107,7 +107,8 @@ namespace AddressBook
             string AddName = Console.ReadLine();
             Console.WriteLine("First Name:");
             string firstName = Console.ReadLine();
-            foreach(var element in dictionary)
+            
+            foreach (var element in dictionary)
             {
                 if (element.Key.Equals(AddName) || element.Key.Equals(firstName))
                 {
@@ -115,10 +116,12 @@ namespace AddressBook
                 }
                 else
                 {
-                   Console.WriteLine("No Address Book Found, Please Select Option 1 To Add Address Book");
+                    Console.WriteLine("No Address Book Found, Please Select Option 1 To Add Address Book");
                 }
             }
-            
+
+            //var duplicate = list.GroupBy(e => firstName).Where(e => e.Count() > 1).Select(e => e.Key).ToList();
+            //element.Key.Equals(firstName)
         }
     }
 }
