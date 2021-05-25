@@ -182,7 +182,52 @@ namespace AddressBook
                 }
 
             }
+        }
+        public static void Contact()
+        {
+            Console.WriteLine("Get number of person to contact by city and state");
+            Console.WriteLine("Select Choice to count person by \n 1: City\n 2: State\n X: Exit");
+            string choice = Console.ReadLine();
 
+            int count = 0;
+            int count1 = 0;
+
+            switch (choice)
+            {
+                case "1":
+                    Console.WriteLine("Enter the city name");
+                    string city = Console.ReadLine();
+                    foreach(var element in dictionary)
+                    {
+                        if (element.Value.City.Equals(city))
+                        {
+                            Console.WriteLine("Number of person available for contact in {0} is {1} ", city, count++);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Person is not found for contact in" + "" + city);
+                        }
+                    }
+                    break;
+                case "2":
+                    Console.WriteLine("Enter the state name");
+                    string state = Console.ReadLine();
+                    foreach(var element in dictionary)
+                    {
+                        if (element.Value.City.Equals(state))
+                        {
+                            Console.WriteLine("Number of person available for contact in {0} is {1}", state, count1++);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Person is not found for contact in" + "" + state);
+                        }
+                    }
+                    break;
+                case "X":
+                    return;
+
+            }
         }
     }
 }
