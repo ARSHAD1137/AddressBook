@@ -9,7 +9,7 @@ namespace AddressBook
     {
 
 
-        public static List<Contact> list  = new List<Contact>();
+        public static List<Contact> list = new List<Contact>();
         public static Dictionary<string, Contact> dictionary = new Dictionary<string, Contact>();
 
         public static void AddInput(Contact myObj)
@@ -34,7 +34,7 @@ namespace AddressBook
         }
         public static void Edit()
         {
-   
+
             string EnterName = Console.ReadLine();
             foreach (var element in dictionary)
                 if (element.Key == EnterName)
@@ -73,41 +73,41 @@ namespace AddressBook
         }
         public static void Add()
         {
-                string AddName = Console.ReadLine();
+            string AddName = Console.ReadLine();
 
-                Console.WriteLine("First Name:");
-                string firstName = Console.ReadLine();
+            Console.WriteLine("First Name:");
+            string firstName = Console.ReadLine();
 
-                Console.WriteLine("Last Name:");
-                string lastName = Console.ReadLine();
+            Console.WriteLine("Last Name:");
+            string lastName = Console.ReadLine();
 
-                Console.WriteLine("Address:");
-                string address = Console.ReadLine();
+            Console.WriteLine("Address:");
+            string address = Console.ReadLine();
 
-                Console.WriteLine("City:");
-                string city = Console.ReadLine();
+            Console.WriteLine("City:");
+            string city = Console.ReadLine();
 
-                Console.WriteLine("State:");
-                string state = Console.ReadLine();
+            Console.WriteLine("State:");
+            string state = Console.ReadLine();
 
-                Console.WriteLine("Pincode:");
-                int pincode = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Pincode:");
+            int pincode = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Phone Number:");
-                int phoneNumber = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Phone Number:");
+            int phoneNumber = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("Email:");
-                string email = Console.ReadLine();
-                var Input = new Contact(firstName, lastName, address, city, state, pincode, phoneNumber, email);
-           
-                 dictionary.Add(AddName, Input);
+            Console.WriteLine("Email:");
+            string email = Console.ReadLine();
+            var Input = new Contact(firstName, lastName, address, city, state, pincode, phoneNumber, email);
+
+            dictionary.Add(AddName, Input);
         }
         public static void Duplicate()
         {
             string AddName = Console.ReadLine();
             Console.WriteLine("First Name:");
             string firstName = Console.ReadLine();
-            
+
             foreach (var element in dictionary)
             {
                 if (element.Key.Equals(AddName) || element.Key.Equals(firstName))
@@ -121,7 +121,48 @@ namespace AddressBook
             }
 
             //var duplicate = list.GroupBy(e => firstName).Where(e => e.Count() > 1).Select(e => e.Key).ToList();
-            //element.Key.Equals(firstName)
+            //element.Key.Equals(firstName) 
+        }
+        public static void Search()
+        {
+            Console.WriteLine("Select the choice to find the Person from list");
+            Console.WriteLine("Enter the Choice:\n 1: City\n 2: State\n X: Exit");
+            string choice = Console.ReadLine();
+            
+           
+            foreach(var element in dictionary)
+            {
+                switch (choice)
+                {
+                    case "1":
+                        Console.WriteLine("Enter the city name:");
+                        string city = Console.ReadLine();
+                        if (element.Value.City.Equals(city))
+                        {
+                            Console.WriteLine("Person is found in {0}: " + element.Value.FirstName, city);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Person is not found");
+                        }
+                        break;
+                    case "2":
+                        Console.WriteLine("Enter the city name:");
+                        string state = Console.ReadLine();
+                        if (element.Value.City.Equals(state))
+                        {
+                            Console.WriteLine("Person is found in {0}: " + element.Value.FirstName, state);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Person is not found");
+                        }
+                        break;
+                    case "X":
+                        return;
+                }
+
+            }
         }
     }
 }
