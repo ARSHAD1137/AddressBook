@@ -147,9 +147,9 @@ namespace AddressBook
                         }
                         break;
                     case "2":
-                        Console.WriteLine("Enter the city name:");
+                        Console.WriteLine("Enter the State name:");
                         string state = Console.ReadLine();
-                        if (element.Value.City.Equals(state))
+                        if (element.Value.State.Equals(state))
                         {
                             Console.WriteLine("Person is found in {0}: " + element.Value.FirstName, state);
                         }
@@ -163,6 +163,26 @@ namespace AddressBook
                 }
 
             }
+        }
+        public static void View()
+        {
+            Console.WriteLine("View person by city and state");
+            Console.WriteLine("Enter the person name");
+            string name = Console.ReadLine();
+
+            foreach (var element in dictionary)
+            {
+                if (element.Value.FirstName.Equals(name))
+                {
+                    Console.WriteLine("Person name is {0} from the city {1} and its state is {2}", name, element.Value.City, element.Value.State);
+                }
+                else
+                {
+                    Console.WriteLine("Person is not found");
+                }
+
+            }
+
         }
     }
 }
