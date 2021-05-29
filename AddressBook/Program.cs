@@ -8,7 +8,7 @@ namespace AddressBook
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book");
-            Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n 6: Search Person By City or State\n 7: View Person By City or State\n 8: Contact person by city and state\n 9: Sort person name in alphabetical order\n X: Exit");
+            Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n 6: Search Person By City or State\n 7: View Person By City or State\n 8: Contact person by city and state\n 9: Sort person name in alphabetical order\n 10: Sort person by its city or state\n X: Exit");
 
             string Choice = Console.ReadLine();
             var userInput = new AddressBookBuilder();
@@ -47,11 +47,14 @@ namespace AddressBook
                     case "9":
                         AddressBookBuilder.SortName();
                         break;
+                    case "10":
+                        AddressBookBuilder.SortByCity();
+                        break;
                     case "X":
                         return;
 
                 }
-                Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n 6: Search Person By City or State\n 7: View Person By City or State\n 8: Contact person by city and state\n 9: Sort person name in alphabetical order\n X: Exit");
+                Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n 6: Search Person By City or State\n 7: View Person By City or State\n 8: Contact person by city and state\n 9: Sort person name in alphabetical order\n 10: Sort person by its city or state\n X: Exit");
                 Choice = Console.ReadLine();
 
 

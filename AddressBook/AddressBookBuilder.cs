@@ -235,8 +235,32 @@ namespace AddressBook
             Console.WriteLine("Sorting person entry by alphabetically");
             foreach (var element in dictionary.OrderBy(p => p.Value.FirstName))
             {
-                Console.WriteLine("{0}", element.Value.FirstName);
+                Console.WriteLine("{0}","{1}", element.Value.FirstName, element.Value.LastName);
             } 
+        }
+        public static void SortByCity()
+        {
+            Console.WriteLine("Sorting person name by its city or state");
+            Console.WriteLine("Select choice to sort person name by\n 1: City\n 2: State\n X: Exit");
+            string choice = Console.ReadLine();
+
+            switch(choice)
+            {
+                case "1":
+                    foreach( var element in dictionary.OrderBy(p => p.Value.City))
+                    {
+                        Console.WriteLine("{0}", "{1}", "{2}", element.Value.City, element.Value.FirstName, element.Value.LastName);
+                    }
+                    break;
+                case "2":
+                    foreach (var element in dictionary.OrderBy(p => p.Value.State))
+                    {
+                        Console.WriteLine("{0}", "{1}", "{2}", element.Value.State, element.Value.FirstName, element.Value.LastName);
+                    }
+                    break;
+                case "X":
+                    return;
+            }
         }
     }
 }
