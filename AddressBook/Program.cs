@@ -8,7 +8,7 @@ namespace AddressBook
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book");
-            Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n 6: Search Person By City or State\n 7: View Person By City or State\n 8: Contact person by city and state\n X: Exit");
+            Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n 6: Search Person By City or State\n 7: View Person By City or State\n 8: Contact person by city and state\n 9: Sort person name in alphabetical order\n X: Exit");
 
             string Choice = Console.ReadLine();
             var userInput = new AddressBookBuilder();
@@ -44,11 +44,14 @@ namespace AddressBook
                     case "8":
                         AddressBookBuilder.Contact();
                         break;
+                    case "9":
+                        AddressBookBuilder.SortName();
+                        break;
                     case "X":
                         return;
 
                 }
-                Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n 6: Search Person By City or State\n 7: View Person By City or State\n 8: Contact person by city and state\n X: Exit");
+                Console.WriteLine("Select Opertion\n 1: Add New Address Book\n 2: Display Address Book\n 3: Edit Address Book\n 4: Delete Address Book\n 5: Duplicate Address Book\n 6: Search Person By City or State\n 7: View Person By City or State\n 8: Contact person by city and state\n 9: Sort person name in alphabetical order\n X: Exit");
                 Choice = Console.ReadLine();
 
 

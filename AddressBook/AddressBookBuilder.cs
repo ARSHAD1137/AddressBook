@@ -228,6 +228,15 @@ namespace AddressBook
                     return;
 
             }
+           
+        }
+        public static void SortName()
+        {
+            Console.WriteLine("Sorting person entry by alphabetically");
+            foreach (var element in dictionary.OrderBy(p => p.Value.FirstName))
+            {
+                Console.WriteLine("{0}", element.Value.FirstName);
+            } 
         }
     }
 }
